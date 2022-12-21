@@ -3,6 +3,9 @@ const app = express();
 
 const port = 1111;
 
+// use express router
+app.use('/', require('./routes/index'));
+
 
 app.listen(port, function(err){
     if(err){
