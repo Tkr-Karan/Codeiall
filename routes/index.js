@@ -9,9 +9,9 @@ console.log("routes added successfully!!");
 
 
 // adding controller for our page.
-router.use('/', homeController.home);
+router.get('/', homeController.home);
 
-router.use('/login', homeController.login);
+router.get('/login', homeController.login);
 
 
 module.exports = router;
