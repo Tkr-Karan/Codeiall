@@ -6,6 +6,10 @@ const port = 1111;
 // use express router
 app.use('/', require('./routes/index'));
 
+// setting up the view engine
+app.use('view engine', 'ejs');
+app.set('views', './views');
+
 
 app.listen(port, function(err){
     if(err){
