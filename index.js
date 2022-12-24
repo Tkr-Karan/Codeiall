@@ -1,13 +1,15 @@
 const express = require('express');
 const app = express();
 
+const path = require('path');
+
 const port = 1111;
 
 // use express router
-app.use('/', require('./routes/index'));
+app.use('/', require('./routes'));
 
-// setting up the view engine
-app.use('view engine', 'ejs');
+// setting up the view engine using use method for work as a middle ware
+app.set('view engine', 'ejs');
 app.set('views', './views');
 
 
