@@ -5,11 +5,16 @@ const path = require('path');
 
 const port = 1111;
 
+
+
 // setting up the layouts
 const expressLayouts = require('express-ejs-layouts');
 
 // Creating layouts middle-ware.
 app.use(expressLayouts);
+
+// adding assets to the folder -> static files
+app.use(express.static('./assets'));
 
 // use express router
 app.use('/', require('./routes'));
