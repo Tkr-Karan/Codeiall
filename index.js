@@ -13,6 +13,11 @@ const expressLayouts = require('express-ejs-layouts');
 // Creating layouts middle-ware.
 app.use(expressLayouts);
 
+// extracting style and scripts from subpages to the layout
+app.set('layout extractStyles', true);
+app.set('layout extractScripts', true);
+
+
 // adding assets to the folder -> static files
 app.use(express.static('./assets'));
 
