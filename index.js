@@ -5,6 +5,8 @@ const path = require('path');
 
 const port = 1111;
 
+// connecting the db
+const db = require('./config/mongoose');
 
 
 // setting up the layouts
@@ -35,5 +37,5 @@ app.listen(port, function(err){
         console.log(`there is some error please connect with your developer: ${err}`);
     }
 
-    console.log(`your serveris running FINE ${port}`);
+    console.log(`your server is running FINE ${port}`);
 });
