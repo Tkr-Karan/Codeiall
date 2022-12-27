@@ -53,6 +53,7 @@ module.exports.create = function(req, res) {
             })
         }
         else{
+            console.log("user added successfully :)")
             return res.redirect('back');
         }
     });
