@@ -1,4 +1,8 @@
 const express = require('express');
+
+// importing the cookie parser to our project.
+const cookieParser = require('cookie-parser');
+
 const app = express();
 
 const path = require('path');
@@ -7,6 +11,12 @@ const port = 1111;
 
 // connecting the db
 const db = require('./config/mongoose');
+
+// using the urlEncoded middleware
+app.use(express.urlencoded());
+
+// using cookie parser moiddleware.
+app.use(cookieParser());
 
 
 // setting up the layouts
