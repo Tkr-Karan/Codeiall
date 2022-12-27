@@ -21,3 +21,13 @@ module.exports.signUp = function(req, res) {
         title: "Codeiall | SignUp"
     })
 }
+
+//get the data from the form.
+module.exports.create = function(req, res) {
+    // Todo later.
+}
+
+// sign in and creating the session for the user.
+module.exports.createSession = function(req, res) {
+    // Todo later
+}
