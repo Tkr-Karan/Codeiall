@@ -1,3 +1,7 @@
+// importing the User data from the models
+const User = require('../models/user');
+
+
 module.exports.profile = function(req, res) {
     
     return res.render('user',{
@@ -24,7 +28,34 @@ module.exports.signUp = function(req, res) {
 
 //get the data from the form.
 module.exports.create = function(req, res) {
-    // Todo later.
+    // here we are checking the credentials and adding to database.
+
+    if(req.body.password != req.body.confirm_password){
+        console.log("password doesn't match");
+        return res.redirect('back');
+    }
+
+    
+    // chceking the user email using the findOne function
+    User.findOne({email: req.body.email}, function(err, user) {
+        if(err) {
+            console.log("there is an error to find the user.");
+            return;
+        }
+
+        if(!user){
+            User.create(req.body, function(err, user) {
+                if(err) {
+                    console.log("error in creating user while siging up", err);
+                    return;
+                }
+                return res.redirect('/user/sign-in');
+            })
+        }
+        else{
+            return res.redirect('back');
+        }
+    });
 }
 
 // sign in and creating the session for the user.

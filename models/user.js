@@ -18,11 +18,11 @@ const userSchema = new mongoose.Schema({
     }
 }, {
     timestamps: true // here timestamps gives us the property or instance in tableof CreatedAt and UpdatedAt.
-})
+});
 
 
-//creating an Schema which is visible in the db.
-const User = mongoose.model('User', userSchema);
+//creating an Schema which is visible in the db. telling moongose it is a collection.
+const User = mongoose.model('user', userSchema);
 
 // exporting the modules
 module.exports = User;
