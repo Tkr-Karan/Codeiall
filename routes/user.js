@@ -17,5 +17,8 @@ router.get('/sign-up', profile_controller.signUp);
 //creating the Ceate Router for inserting the data to the db Table. here  we are using the post method to posting the  data in db.
 router.post('/create', profile_controller.create);
 
+// adding the router for the signin in page.
+router.post('/create-session', profile_controller.createSession);
+
 
 module.exports = router;
