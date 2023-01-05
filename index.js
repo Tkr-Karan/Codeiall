@@ -12,6 +12,16 @@ const port = 1111;
 // connecting the db
 const db = require('./config/mongoose');
 
+
+// Used for sessoin cookies
+// adding express session
+const session = require('express-session');
+// adding Passport library
+const passport = require('passport');
+
+// adding Passport Local Startegy
+const passportLocal = require('./config/passport-local-strategy');
+
 // using the urlEncoded middleware
 app.use(express.urlencoded());
 
@@ -40,6 +50,22 @@ app.use('/', require('./routes'));
 // setting up the view engine using use method for work as a middle ware
 app.set('view engine', 'ejs');
 app.set('views', './views');
+
+
+//using the express session after the views.
+app.use(session({
+    name: 'codeiall',
+    secret: "ithassomething",
+    saveUninitialized: false,
+    resave: false,
+    cookie: {
+        maxAge: (1000*60*100)
+    }
+}));
+
+app.use(passport.initialize());
+
+app.use(passport.session());
 
 
 app.listen(port, function(err){
