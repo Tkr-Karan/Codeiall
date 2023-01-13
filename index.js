@@ -56,8 +56,8 @@ app.use(session({
 
     name: 'codeiall',
     secret: "ithassomething",
-    saveUninitialized: false,
-    resave: false,
+    saveUninitialized: false, //if the identity is not established so is that important to need some extra data: no -> so the value is false
+    resave: false, // if the identity is established or the session cookies is store, then we wanna rewrite again and again -> So resave help us to prevernting from that.
     cookie: {
         maxAge: (1000*60*100)
     }
@@ -67,6 +67,9 @@ app.use(passport.initialize());
 
 app.use(passport.session());
 
+
+// checking wether the sessioin cookies is present or not
+app.use(passport.setAuthenticatedUser);
 
 // use express router
 app.use('/', require('./routes'));

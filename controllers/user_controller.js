@@ -14,6 +14,14 @@ module.exports.profile = function(req, res) {
 // render the Sigin page
 module.exports.signIn = function(req, res) {
 
+    //if the user is sign in
+
+    // here we are checking if the user is authenticated for the certain period of time (fwhen the server is not restart)
+    if(req.isAuthenticated()){
+        return res.redirect('/user/profile');
+        
+    }
+
     return res.render('user_sign_in', {
         title: "Codiall | Signin"
     })
@@ -22,6 +30,13 @@ module.exports.signIn = function(req, res) {
 
 // render the Sign Up Page
 module.exports.signUp = function(req, res) {
+
+    //if the user is sign up
+    if(req.isAuthenticated()){
+        return res.redirect('/user/profile');
+        
+    }
+
     return res.render('user_sign_up', {
         title: "Codeiall | SignUp"
     })
