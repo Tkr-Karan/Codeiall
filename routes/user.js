@@ -22,15 +22,9 @@ router.post('/create', profile_controller.create);
 
 // here we create the router for the create-session
 // here our roter takes the three arguemnt instead of two and one is the middleware.
-router.post('/create-session',passport.authenticate('local',{failureRedirect:'/user/sign-in'}), profile_controller.createSession);
+// router.post('/create-session',passport.authenticate('local',{failureRedirect:'/user/sign-in'}), profile_controller.createSession);
 
-// router.post('/create-session', passport.authenticate(
-//     'local',
-//     console.log("form Router"),
-//     // console.log("Please enter the correct information"),
-//     {failureRedirect: '/user/sign-in'}
-//     // console.log("You are stuck here"),
-// ) , profile_controller.createSession);
+router.post('/create-session', passport.authenticate('local',{failureRedirect: '/user/sign-in'}) , profile_controller.createSession);
 
 
 module.exports = router;
