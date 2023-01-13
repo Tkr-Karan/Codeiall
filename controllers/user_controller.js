@@ -83,3 +83,20 @@ module.exports.createSession = function(req, res) {
     console.log("123");
     return res.redirect('/');
 }
+
+module.exports.destroySession = function(req, res, next){
+
+    //here we are logout from the apage or session
+    req.logout(function(err){
+        if(err){
+            return next(err);
+        }
+        else{
+            console.log("Log out Successfully")
+        }
+    });
+
+
+    // after loggin out from the page we are redirecting to home page.
+    return res.redirect('/');
+}
