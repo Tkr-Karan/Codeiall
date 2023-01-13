@@ -17,6 +17,5 @@ db.once('open', function() {
 });
 
 
-
 // here we exports the module.
 module.exports = db;

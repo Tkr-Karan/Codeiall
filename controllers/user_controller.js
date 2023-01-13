@@ -1,6 +1,7 @@
 // importing the User data from the models
 const User = require('../models/user');
 
+// const passport = require('passport');
 
 module.exports.profile = function(req, res) {
     
@@ -61,6 +62,7 @@ module.exports.create = function(req, res) {
 
 // sign in and creating the session for the user.
 module.exports.createSession = function(req, res) {
+
     console.log("123");
     return res.redirect('/');
 }

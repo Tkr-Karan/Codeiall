@@ -43,17 +43,17 @@ app.set('layout extractScripts', true);
 // adding assets to the folder -> static files
 app.use(express.static('./assets'));
 
-// use express router
-app.use('/', require('./routes'));
+
 
 
 // setting up the view engine using use method for work as a middle ware
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
-
 //using the express session after the views.
+
 app.use(session({
+
     name: 'codeiall',
     secret: "ithassomething",
     saveUninitialized: false,
@@ -68,10 +68,15 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
+// use express router
+app.use('/', require('./routes'));
+
+
+
 app.listen(port, function(err){
     if(err){
         console.log(`there is some error please connect with your developer: ${err}`);
     }
-
+    
     console.log(`your server is running FINE ${port}`);
 });

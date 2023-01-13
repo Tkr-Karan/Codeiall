@@ -3,7 +3,7 @@ module.exports.home = function(req, res) {
     // checking the cookies value using the req because we are requesting the cookie to the browser.
     // console.log(req.cookies);  // cookies comes as request but going as a response ,to the browser
 
-    // // here I try to change the cookie inside the code
+    // // here I try to change the cookise inside the code
     // res.cookie('user_id', 07);
 
     return res.render('home', {
