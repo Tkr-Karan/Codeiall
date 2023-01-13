@@ -22,6 +22,10 @@ const passport = require('passport');
 // adding Passport Local Startegy
 const passportLocal = require('./config/passport-local-strategy');
 
+// here we are using the connect mongo library for storing the session cookies using the Mongo Store
+const MongoStore = require('connect-mongo')(session);
+
+
 // using the urlEncoded middleware
 app.use(express.urlencoded());
 
@@ -50,8 +54,11 @@ app.use(express.static('./assets'));
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
+
+
 //using the express session after the views.
 
+// using the MONGO STORE for the session cookies in the DB.
 app.use(session({
 
     name: 'codeiall',
@@ -60,7 +67,17 @@ app.use(session({
     resave: false, // if the identity is established or the session cookies is store, then we wanna rewrite again and again -> So resave help us to prevernting from that.
     cookie: {
         maxAge: (1000*60*100)
+    },
+    store: new MongoStore({
+        mongooseConnection: db,
+        autoRemove: 'disabled'
+    },
+    //here we are using the calback function which checking if there is no error
+    function(err){
+        console.log(err || 'connect mongo-db setup OK');
+        
     }
+    )
 }));
 
 app.use(passport.initialize());
