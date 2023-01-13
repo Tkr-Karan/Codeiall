@@ -17,6 +17,8 @@ module.exports.signIn = function(req, res) {
     //if the user is sign in
 
     // here we are checking if the user is authenticated for the certain period of time (fwhen the server is not restart)
+
+    // cookies are store for a particular time period while server is running. 
     if(req.isAuthenticated()){
         return res.redirect('/user/profile');
         
