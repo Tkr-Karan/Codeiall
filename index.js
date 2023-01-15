@@ -23,7 +23,11 @@ const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
 
 // here we are using the connect mongo library for storing the session cookies using the Mongo Store
-const MongoStore = require('connect-mongo')(session);
+const MongoStore = require('connect-mongo')(session); // for this we use the command 'npm install connect-mongo@3.1.2'
+
+
+// here we are adding the SASS workbench as a middle-ware
+// const sassMiddleware = require('node-sass-middleware');
 
 
 // using the urlEncoded middleware
