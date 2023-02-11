@@ -60,6 +60,7 @@ app.set('views', './views');
 
 
 
+
 //using the express session after the views.
 
 // using the MONGO STORE for the session cookies in the DB.
@@ -89,7 +90,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
-// checking wether the sessioin cookies is present or not
+// checking whether the sessioin cookies is present or not
 app.use(passport.setAuthenticatedUser);
 
 // use express router
