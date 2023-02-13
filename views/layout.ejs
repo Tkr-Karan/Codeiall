@@ -9,15 +9,21 @@
     </title>
 
     <link rel="stylesheet" href="/css/layouts.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
 
     <%- style %>
 
 </head>
 <body>
     <!-- including header and footer layouts -->
-    <%- include('_header'); %>
+    <header id="header-part">
+        <%- include('_header'); %>
+    </header>
 
-    <%- body %>
+    <main id="layout-main">
+        <%- body %>
+    </main>
 
     <%- include('_footer'); %>
 

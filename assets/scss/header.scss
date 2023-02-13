@@ -1,0 +1,21 @@
+.header-data{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+#list-item{
+    width:  140px;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    
+    
+    li a{
+        text-decoration: none;
+        color: black;
+        display: flex;
+        flex-direction: row;
+    }
+}

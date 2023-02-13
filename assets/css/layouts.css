@@ -1,5 +1,16 @@
+* {
+  margin: 0;
+}
+
 body {
-  background-color: cyan;
+  text-align: center;
+}
+body #header-part {
+  height: 40px;
+  background-color: blue;
+}
+body #layout-main {
+  height: 1000px;
 }
 
 /*# sourceMappingURL=layouts.css.map */

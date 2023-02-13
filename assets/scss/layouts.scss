@@ -1,3 +1,19 @@
+*{
+    margin: 0;
+}
+
 body{
-    background-color: cyan;
+    // background-color: cyan;
+    text-align: center;
+
+
+    #header-part{
+        height: 40px;
+        
+        background-color: blue;
+    }
+
+    #layout-main{
+        height: 1000px;
+    }
 }
